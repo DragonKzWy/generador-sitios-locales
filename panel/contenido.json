@@ -1,0 +1,11 @@
+{
+  "titulo": "Pan del día en el barrio, desde las 7",
+  "texto": "Hogazas, marraquetas y pastelería hechas cada mañana. Pide por WhatsApp y pasa a buscar.",
+  "productos": [
+    {"nombre": "Hogazas", "descripcion": "Masa de fermentación lenta."},
+    {"nombre": "Marraquetas", "descripcion": "Crujientes, para el desayuno y la once."},
+    {"nombre": "Pastelería", "descripcion": "Dulces para acompañar el café."},
+    {"nombre": "Pedidos por encargo", "descripcion": "Cajas para reuniones y cumpleaños."}
+  ],
+  "cafe": "Café de grano y mesas para tomarlo con calma."
+}

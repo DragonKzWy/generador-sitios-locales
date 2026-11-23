@@ -1,0 +1,19 @@
+# Ejemplo de panel de edición con Pages CMS (https://pagescms.org).
+# El dueño del negocio entra con su correo (sin cuenta de GitHub) y edita solo los textos.
+content:
+  - name: contenido
+    label: Textos del sitio
+    type: file
+    path: panel/contenido.json
+    format: json
+    fields:
+      - { name: titulo, label: Título principal, type: string }
+      - { name: texto, label: Texto bajo el título, type: text }
+      - name: productos
+        label: Productos (arrastra para cambiar el orden)
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre, type: string }
+          - { name: descripcion, label: Descripción, type: text }
+      - { name: cafe, label: Texto de la sección del café, type: text }

@@ -52,8 +52,24 @@ Para un negocio nuevo: copia `ejemplo/negocio.py`, cambia los datos y pon las fo
 | `generar.py` | Genera los sitios. |
 | `video.py`, `ejemplo/textos_video.py` | Video de presentación. |
 | `herramientas/` | Capturas, verificación del botón, captura para el video y música. |
+| `panel/`, `.pages.yml` | Panel de edición del cliente (Pages CMS) y publicación automática. |
 
 Los comentarios internos del motor están en portugués, el idioma original del proyecto.
+
+## Panel de edición para el cliente
+
+Desde el primer cliente con mensualidad, el dueño del negocio puede editar su propio sitio sin tocar código y sin cuenta de GitHub:
+
+1. Los textos salen de un archivo de datos (`panel/contenido.json` en este ejemplo).
+2. **Pages CMS** (`.pages.yml`) muestra ese archivo como un formulario: título, textos, lista de productos (con orden por arrastre) y fotos. El cliente entra con su correo.
+3. Al guardar, **GitHub Actions** ejecuta `panel/construir.py`, arma el sitio con el mismo motor y lo publica en **Cloudflare Pages** (`panel/publicar.yml.ejemplo`).
+4. El diseño queda bloqueado: el cliente cambia contenido, no colores, fuentes ni estructura.
+
+Costo de infraestructura: cero (Pages CMS, GitHub Actions y Cloudflare Pages en planes gratuitos). En producción lo uso con un estudio contable de Maceió; ese repositorio es privado.
+
+```bash
+python3 panel/construir.py        # arma el sitio de ejemplo con los textos de panel/contenido.json
+```
 
 ## Lo que no hace
 
@@ -73,6 +89,8 @@ The business in this repository is **fictional** (name, phone, reviews and code-
 - **Mobile first**: sticky action bar, service thumbnails, full-height hero.
 - **Automated checks in Chromium** via the DevTools Protocol: full-page screenshots and a check that the main button is visible without scrolling on a phone.
 - **30-second vertical presentation video** generated with Pillow and FFmpeg, with code-generated music.
+
+- **Client editing panel**: content lives in a JSON file, edited through Pages CMS (email login, no GitHub account); on save, GitHub Actions rebuilds the site and deploys it to Cloudflare Pages. Layout stays locked. Zero infrastructure cost. See `panel/` and `.pages.yml`.
 
 See the Spanish section above for usage.
 
